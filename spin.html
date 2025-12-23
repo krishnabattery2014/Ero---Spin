@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ero Batteries & Solar – Spin & Win</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #fffde7;
+      padding: 20px;
+    }
+    canvas {
+      margin-top: 20px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 15px 30px;
+      font-size: 18px;
+      background: #1b5e20;
+      color: white;
+      border: none;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>🎉 Spin & Win 🎉</h2>
+
+<canvas id="wheel" width="280" height="280"></canvas>
+
+<br>
+
+<button onclick="spinWheel()">SPIN</button>
+
+<h3 id="result"></h3>
+
+<p>
+Show this screen to Ero Batteries & Solar staff to claim your gift.
+</p>
+
+<script>
+const prizes = [
+  "₹500 Discount",
+  "Free Site Visit",
+  "Free Energy Bill Analysis",
+  "Ero Solar Cap",
+  "Ero Solar Keychain",
+  "Ero Solar Pen",
+  "Try Again – Chocolate",
+  "Mystery Gift"
+];
+
+const canvas = document.getElementById("wheel");
+const ctx = canvas.getContext("2d");
+const center = canvas.width / 2;
+const angle = (2 * Math.PI) / prizes.length;
+
+function drawWheel() {
+  for (let i = 0; i < prizes.length; i++) {
+    ctx.beginPath();
+    ctx.fillStyle = i % 2 === 0 ? "#ffe082" : "#ffcc80";
+    ctx.moveTo(center, center);
+    ctx.arc(center, center, center, i * angle, (i + 1) * angle);
+    ctx.fill();
+    ctx.save();
+    ctx.translate(center, center);
+    ctx.rotate(i * angle + angle / 2);
+    ctx.textAlign = "right";
+    ctx.fillStyle = "#000";
+    ctx.font = "14px Arial";
+    ctx.fillText(prizes[i], center - 10, 5);
+    ctx.restore();
+  }
+}
+
+drawWheel();
+
+function spinWheel() {
+  const pick = Math.floor(Math.random() * prizes.length);
+  document.getElementById("result").innerHTML =
+    "🎁 You won: <b>" + prizes[pick] + "</b>";
+}
+</script>
+
+</body>
+</html>
