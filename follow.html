@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ero Batteries & Solar – Follow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f8f4;
+      text-align: center;
+      padding: 20px;
+    }
+    h2 { color: #1b5e20; }
+    a.btn {
+      display: block;
+      margin: 15px auto;
+      padding: 14px;
+      width: 90%;
+      max-width: 320px;
+      background: #1b5e20;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 17px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 14px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      background: gray;
+      color: white;
+    }
+    button.enabled {
+      background: #ff9800;
+    }
+    .note {
+      font-size: 14px;
+      margin-top: 15px;
+      color: #333;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>Follow Ero Batteries & Solar</h2>
+
+<p>Please follow us on BOTH platforms</p>
+
+<a class="btn" href="https://instagram.com/YOUR_INSTAGRAM" target="_blank">
+📸 Follow on Instagram
+</a>
+
+<a class="btn" href="https://facebook.com/YOUR_FACEBOOK" target="_blank">
+📘 Follow on Facebook
+</a>
+
+<p class="note">
+If you do not have Instagram or Facebook,
+please inform our staff.
+</p>
+
+<hr>
+
+<input type="checkbox" id="confirm" onclick="enableButton()">
+<label for="confirm">
+I have followed both pages
+</label>
+
+<br>
+
+<button id="spinBtn" disabled onclick="goSpin()">
+Proceed to Spin the Wheel
+</button>
+
+<p class="note">
+Show your following screen to staff before spinning.
+</p>
+
+<script>
+function enableButton() {
+  const btn = document.getElementById("spinBtn");
+  btn.disabled = false;
+  btn.classList.add("enabled");
+}
+
+function goSpin() {
+  window.location.href = "spin.html";
+}
+</script>
+
+</body>
+</html>
